@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LogApp</string>
+    <string name="started_value">0</string>
+    <string name="square_the_number">Square the number</string>
 </resources>
