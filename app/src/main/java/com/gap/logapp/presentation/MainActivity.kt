@@ -1,6 +1,5 @@
 package com.gap.logapp.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -21,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         workingWithViewModel()
         workingWithUI()
-
     }
 
 
