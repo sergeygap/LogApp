@@ -8,8 +8,8 @@ class RepositoryImpl: CoreRepository {
         return Core(core.value.plus(1))
     }
 
-    override suspend fun squareNumber(core: Core) {
-        TODO("Not yet implemented")
+    override  fun squareNumber(value: Int): String {
+        return (value * value).toString()
     }
 
 }

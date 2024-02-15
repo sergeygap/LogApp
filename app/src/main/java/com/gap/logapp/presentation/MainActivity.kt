@@ -1,5 +1,6 @@
 package com.gap.logapp.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -18,15 +19,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.increaseValue()
-        workWithLiveData()
+        workingWithViewModel()
+        workingWithUI()
+
     }
 
-    private fun workWithLiveData() {
-        viewModel.valueLD.observe(this) {
-            binding.tvMain.text = it.value.toString()
+
+    private fun workingWithViewModel() {
+        viewModel.increaseValue()
+        viewModel.valueLD.observe(this) { value ->
+            binding.tvMain.text = value.value.toString()
         }
     }
+
+    private fun workingWithUI() {
+        binding.btnToSquare.setOnClickListener {
+            startActivity(SquareActivity.getSquareIntent(this@MainActivity, viewModel.getValue()))
+        }
+    }
+
 
     companion object {
         private const val TAG = "MainActivityWorking"

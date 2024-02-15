@@ -4,5 +4,5 @@ import com.gap.logapp.domain.entities.Core
 
 interface CoreRepository {
     suspend fun increaseValue(core: Core): Core
-    suspend fun squareNumber(core: Core)
+     fun squareNumber(value: Int): String
 }

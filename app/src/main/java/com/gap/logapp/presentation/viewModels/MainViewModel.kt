@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
     private val repository = RepositoryImpl()
-    private val increaseValue = IncreaseValue(repository)
+    private val increaseValueUseCase = IncreaseValue(repository)
     private var value = Core()
     private val _valueLD = MutableLiveData<Core>()
     val valueLD: LiveData<Core>
@@ -19,9 +19,13 @@ class MainViewModel: ViewModel() {
 
     fun increaseValue() {
         viewModelScope.launch {
-            value = increaseValue(value)
+            value = increaseValueUseCase(value)
             _valueLD.postValue(value)
         }
+    }
+
+    fun getValue(): Int {
+        return value.value
     }
 
 }
