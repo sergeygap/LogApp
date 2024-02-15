@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LogApp</string>
+    <string name="started_value">0</string>
 </resources>
